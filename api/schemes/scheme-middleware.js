@@ -17,7 +17,7 @@ const checkSchemeId = async (req, res, next) => {
 		if (!existing) {
 			next({
 				status: 404,
-				message: `scheme with scheme_id${req.params.scheme_id}does not exist`,
+				message: `scheme with scheme_id ${req.params.scheme_id} not found`,
 			});
 		} else {
 			next();
@@ -42,7 +42,7 @@ const validateScheme = (req, res, next) => {
 		typeof scheme_name !== 'string' ||
 		!scheme_name.trim()
 	) {
-		next({ status: 400, messag: 'invalid scheme_name' });
+		next({ status: 400, message: 'invalid scheme_name' });
 	} else {
 		next();
 	}
@@ -67,7 +67,7 @@ const validateStep = (req, res, next) => {
 		typeof step_number !== 'number' ||
 		step_number < 1
 	) {
-		const error = { status: 400, message: 'Invalid step' };
+		const error = { status: 400, message: 'invalid step' };
 		next(error);
 	} else {
 		next();

@@ -103,12 +103,13 @@ async function findById(scheme_id) {
 		scheme_name: rows[0].scheme_name,
 		steps: [],
 	};
+
 	rows.forEach((row) => {
 		if (row.step_id) {
 			result.steps.push({
 				step_id: row.step_id,
 				step_number: row.step_number,
-				instructions: row.instrunctions,
+				instructions: row.instructions,
 			});
 		}
 	});
